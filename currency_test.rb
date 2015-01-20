@@ -1,9 +1,15 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './currency_test'
+require './currency'
 
 class CurrencyTest< Minitest::Test
 
-  def test_truth
-    assert_equal true, results
+  def self.test_order
+    :alpha
+  end
+
+  def test_00_currency_class_exists
+    assert Currency
+  end
+
 end
