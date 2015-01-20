@@ -1,10 +1,9 @@
 class Currency
+  attr_reader :amount
 
-  def initialize
+  def initialize(amount)
+    @amount = amount
 
   end
-
-
-
 
 end
