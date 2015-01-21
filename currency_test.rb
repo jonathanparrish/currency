@@ -30,7 +30,7 @@ class CurrencyTest< Minitest::Test
   def test_00_currency_class_exists
     assert Currency
   end
-  #Should be created with an amount and a currency code
+
   def test_01_currency_knows_its_ammount_and_currency_code
     currency = Currency.new(50, "EUR")
     assert_equal 50, currency.amount
@@ -86,4 +86,10 @@ class CurrencyTest< Minitest::Test
     assert CurrencyConverter
   end
 
+  def test_09_create_currency_code_with_hash
+    currency_converter = CurrencyConverter.new({"USD" => 1.0 , "EUR" => 0.8})
+    assert currency_converter
+  end
+
 end
+#currency_converter.convert(Currency.new(1, :USD), :USD) == Currency.new(1, :USD)
