@@ -3,10 +3,10 @@ class CurrencyConverter
   attr_reader :currency_codes
 
   def initialize (curency_codes)
-    @currency_codes = {"USD" => 1.0 , "EUR" => 0.8}
+    @currency_codes = currency_codes
   end
 
- def converter
+ def convert(amount, code)
 
  end
 end
