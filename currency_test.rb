@@ -44,10 +44,13 @@ class CurrencyTest< Minitest::Test
     low_amount = Currency.new(50, "EUR")
     high_amount = Currency.new(100, "EUR")
     assert_equal 150, low_amount + high_amount
-
   end
 
-
+  def test_03_able_to_subtract_from_another_currency_obj_with_same_code
+    low_amount = Currency.new(50, "EUR")
+    high_amount = Currency.new(100, "EUR")
+    assert_equal 50, high_amount - low_amount 
+  end
 
 
 end

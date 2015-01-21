@@ -23,4 +23,13 @@ class Currency
     end
   end
 
+  def -(currency)
+    if code == currency.code
+      currency_total = amount - currency.amount
+    else
+      raise DifferentCurrencyCodeError, "Sorry, you can't subtract two currencies with different +
+      currency codes!"
+    end
+  end
+
 end
