@@ -46,11 +46,21 @@ class CurrencyTest< Minitest::Test
     assert_equal 150, low_amount + high_amount
   end
 
-  def test_03_able_to_subtract_from_another_currency_obj_with_same_code
+  def test_04_able_to_subtract_from_another_currency_obj_with_same_code
     low_amount = Currency.new(50, "EUR")
     high_amount = Currency.new(100, "EUR")
-    assert_equal 50, high_amount - low_amount 
+    assert_equal 50, high_amount - low_amount
   end
 
+  def test_05_cant_add_or_sutract_with_two_different_currency_codes
+    currency_1 = Currency.new(50, "BRL")
+    currency_2 = Currency.new(50, "EUR")
+    assert_raises(DifferentCurrencyCodeError) do
+      currency_1 + currency_2
+    end
+    assert_raises(DifferentCurrencyCodeError) do
+      currency_1 - currency_2
+    end
+  end
 
 end
