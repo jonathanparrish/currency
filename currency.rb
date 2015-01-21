@@ -36,8 +36,9 @@ class Currency
     end
   end
 
-#  def
-
-#  end
+  # def *(number)
+  #   not sure what to write here? Tried to write the code +
+  #   but too tired
+  # end
 
 end

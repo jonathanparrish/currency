@@ -58,10 +58,14 @@ class CurrencyTest< Minitest::Test
     currency_2 = Currency.new(50, "EUR")
     assert_raises(DifferentCurrencyCodeError) do
       currency_1 + currency_2
-    end           
+    end
     assert_raises(DifferentCurrencyCodeError) do
       currency_1 - currency_2
     end
   end
 
+  def test_06_can_be_multiplied_by_fixnum_or_float
+    #not sure what to write here? Tried to write the code +
+    #but too tired
+  end
 end
