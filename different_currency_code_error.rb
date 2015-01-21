@@ -1,4 +1,3 @@
-#class DifferentCurrencyCodeError < StandardError
+class DifferentCurrencyCodeError < StandardError
 
-#  end
-  
+end

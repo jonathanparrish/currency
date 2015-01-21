@@ -1,7 +1,3 @@
-class DifferentCurrencyCodeError < StandardError
-
-end
-
 class Currency
   attr_reader :amount, :code, :number
 

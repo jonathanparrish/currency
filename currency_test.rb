@@ -17,6 +17,8 @@ require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './currency'
+require './different_currency_code_error'
+require './currency_converter'
 
 
 class CurrencyTest< Minitest::Test
@@ -66,16 +68,21 @@ class CurrencyTest< Minitest::Test
     end
   end
 
-  def test_06_can_be_multiplied_by_fixnum_or_float
+  def test_06_can_be_multiplied_by_fixnum
     currency_1 = Currency.new(5, "EUR")
-    number = 5
     assert_equal Currency.new(25, "EUR"), (currency_1 * 5)
+    refute Currency.new(25, "EUR") == (currency_1 * 6)
     assert_equal Fixnum,(currency_1 * 5).amount.class
+  end
+
+  def test_07_can_be_multiplied_by_float
+    currency_1 = Currency.new(5, "EUR")
     assert_equal Currency.new(7.5, "EUR"), currency_1 * 1.5
+    refute Currency.new(7, "EUR") == currency_1 * 1.5
     assert_equal Float,(currency_1 * 1.5).amount.class
   end
 
-  def test_07_currency_converter_class_exists
+  def test_08_currency_converter_class_exists
     assert CurrencyConverter
   end
 
