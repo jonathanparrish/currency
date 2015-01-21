@@ -13,7 +13,7 @@
 #  and return + a Currency object
 #
 
-
+require 'pry'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './currency'
@@ -37,7 +37,9 @@ class CurrencyTest< Minitest::Test
 
   def test_02_currency_equals_object_with_same_amt_and_code
     currency = Currency.new(50, "EUR")
-    currency_2= Currency.new(50, "EUR")
+    currency_2 = Currency.new(50, "EUR")
+    currency_3 = Currency.new(75, "EUR")
+    refute currency == currency_3
     assert currency == currency_2
   end
 
@@ -65,7 +67,16 @@ class CurrencyTest< Minitest::Test
   end
 
   def test_06_can_be_multiplied_by_fixnum_or_float
-    #not sure what to write here? Tried to write the code +
-    #but too tired
+    currency_1 = Currency.new(5, "EUR")
+    number = 5
+    assert_equal Currency.new(25, "EUR"), (currency_1 * 5)
+    assert_equal Fixnum,(currency_1 * 5).amount.class
+    assert_equal Currency.new(7.5, "EUR"), currency_1 * 1.5
+    assert_equal Float,(currency_1 * 1.5).amount.class
   end
+
+  def test_07_currency_converter_class_exists
+    assert CurrencyConverter
+  end
+
 end

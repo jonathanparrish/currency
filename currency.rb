@@ -3,11 +3,12 @@ class DifferentCurrencyCodeError < StandardError
 end
 
 class Currency
-  attr_reader :amount, :code
+  attr_reader :amount, :code, :number
 
   def initialize(amount, code)
     @amount = amount
     @code = code
+    @number = number
   end
 
   def ==(currency)
@@ -36,9 +37,13 @@ class Currency
     end
   end
 
-  # def *(number)
-  #   not sure what to write here? Tried to write the code +
-  #   but too tired
-  # end
-
+  def *(number)
+    if
+      amount = self.amount.to_i * number
+      Currency.new(amount, self.code)
+    else
+      amount = self.amount.to_f * number
+      Currency.new(amount, self.code)
+    end
+  end
 end
