@@ -18,6 +18,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './currency'
 
+
 class CurrencyTest< Minitest::Test
 
   def self.test_order
@@ -57,7 +58,7 @@ class CurrencyTest< Minitest::Test
     currency_2 = Currency.new(50, "EUR")
     assert_raises(DifferentCurrencyCodeError) do
       currency_1 + currency_2
-    end
+    end           
     assert_raises(DifferentCurrencyCodeError) do
       currency_1 - currency_2
     end

@@ -1,3 +1,7 @@
+class DifferentCurrencyCodeError < StandardError
+
+end
+
 class Currency
   attr_reader :amount, :code
 
@@ -18,8 +22,8 @@ class Currency
     if code == currency.code
       currency_total = amount + currency.amount
     else
-      raise DifferentCurrencyCodeError, "Sorry, you can't add two currencies with different +
-      currency codes!"
+       raise DifferentCurrencyCodeError, "Sorry, you can't do that with +
+       different currency codes!"
     end
   end
 
@@ -27,11 +31,13 @@ class Currency
     if code == currency.code
       currency_total = amount - currency.amount
     else
-      raise DifferentCurrencyCodeError, "Sorry, you can't subtract two currencies with different +
-      currency codes!"
+      raise DifferentCurrencyCodeError, "Sorry, you can't do that with +
+      different currency codes!"
     end
   end
 
+#  def
 
+#  end
 
 end
