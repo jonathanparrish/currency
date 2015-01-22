@@ -90,14 +90,13 @@ class CurrencyTest< Minitest::Test
     currency_codes = CurrencyConverter.new({USD: 1.0 , EUR: 0.8})
     assert currency_codes
   end
-# Should be able to take a Currency object and a requested currency code that +
-#is the same currency code as the Currency object's and return a Currency +
-#object equal to the one passed in
 
   def test_10_take_currency_object_with_same_code_and_return_currency_equal
     currency_converter = CurrencyConverter.new({USD: 1.0, EUR: 0.8})
     currency = Currency.new(3, :USD)
+    currency1 = Currency.new(4, :USD)
     assert currency_converter.convert(currency, :USD) == Currency.new(3, :USD)
+    assert currency_converter.convert(currency1, :USD) == Currency.new(4, :USD)
   end
 
 end

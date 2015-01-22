@@ -1,12 +1,15 @@
+require './currency'
 class CurrencyConverter
 
-  attr_reader :currency_codes
+  attr_accessor :c_codes
 
-  def initialize (curency_codes)
-    @currency_codes = currency_codes
+  def initialize (c_codes)
+    @c_codes = c_codes
   end
 
- def convert(amount, code)
-
+ def convert(new_amt, new_code)
+   if new_amt.code == new_code
+     return new_amt
+   end
  end
 end
