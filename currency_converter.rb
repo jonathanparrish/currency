@@ -1,17 +1,29 @@
-require './currency'
+
 class CurrencyConverter
 
-  attr_accessor :c_codes
+  attr_accessor :currency_codes
 
-  def initialize (c_codes)
-    @c_codes = c_codes
+  def initialize (currency_codes)
+    @currency_codes = currency_codes
   end
 
- def convert(new_amt, new_code)
-   if new_amt.code == new_code
-     return new_amt
+ def convert(currency, new_code)
+
+   if currency.code == new_code
+     return currency
+
+
+     #borrowed this code to try to figure ou how to follow their logic.
+     #I failed :)
+
+
+   elsif
+     currency.amount > currency_codes[new_code]
+     new_amt = currency.amount * currency_codes[new_code]
+     return Currency.new(new_amt, new_code)
    else
-     new_amt = new_amt.amount * c_codes[new_code] / c_codes[new_amt.code]
+     currency.amount < currency_codes[new_code]
+     new_amt = currency.amount * currency_codes[new_code] / currency_codes[currency.code]
      return Currency.new(new_amt, new_code)
    end
  end

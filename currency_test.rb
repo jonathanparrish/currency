@@ -98,12 +98,21 @@ class CurrencyTest< Minitest::Test
     assert currency_converter.convert(currency, :USD) == Currency.new(3, :USD)
     assert currency_converter.convert(currency1, :USD) == Currency.new(4, :USD)
   end
-   
+
   def test_11_take_currency_code_and_change_to_different_currency_code
-    currency_converter = CurrencyConverter.new({USD: 1.0, EUR: 0.8})
-    assert currency_converter.convert(Currency.new(1.0, :USD), :EUR) == Currency.new(0.8, :EUR)
+    currency_converter = CurrencyConverter.new({USD: 1.0, EUR: 0.74})
+    assert currency_converter.convert(Currency.new(1.0, :USD), :EUR) == Currency.new(0.74, :EUR)
   end
 
+  def test_12_can_convert_between_three_plus_currency_codes
+    currency_converter = CurrencyConverter.new({USD: 1.0, EUR: 0.74, JPY: 120.0})
+    #(usd / EUR) * JPY = is euro to yen 1EUR = 162.12 YEN
+    #usd * EUR = is dollar to euro 1USD = .74 euro
+    #EUR / USD = euro to USD 1EUR = 1.35 USD
+     
+    #
+
+  end
 
 end
 
